@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *movieTableView;
 @property (strong, nonatomic) NSArray<MovieModel *> *movies;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIView *errorView;
 
 @end
 
@@ -45,11 +46,19 @@
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     
-    NSURLSession *session =
-    [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-                                  delegate:nil
-                             delegateQueue:[NSOperationQueue mainQueue]];
+    // overwrite default timeout values
+    NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+    sessionConfig.timeoutIntervalForRequest = 5.0;
+    sessionConfig.timeoutIntervalForResource = 5.0;
     
+    // setup sessions instance
+    NSURLSession *session =
+    [NSURLSession sessionWithConfiguration:sessionConfig
+                              delegate:nil
+                              delegateQueue:[NSOperationQueue mainQueue]];
+    
+    // reset error and show progress
+    self.errorView.hidden = true;
     [MBProgressHUD showHUDAddedTo:self.movieTableView animated:YES];
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
@@ -78,16 +87,17 @@
                                         // save to property
                                         self.movies = models;
                                         
-                                        // end pull to refresh ui
-                                        [self.refreshControl endRefreshing];
+                                        self.errorView.hidden = true;
                                         
                                         // update table with data
                                         [self.movieTableView reloadData];
                                         
                                     } else {
                                         NSLog(@"An error occurred: %@", error.description);
+                                        self.errorView.hidden = false;
                                     }
                                     
+                                    [self.refreshControl endRefreshing];
                                     [MBProgressHUD hideHUDForView:self.movieTableView animated:YES];
                                 }];
     [task resume];
@@ -123,6 +133,7 @@
         NSIndexPath *indexPath = [self.movieTableView indexPathForSelectedRow];
         MovieDetailView *movieDetailView = segue.destinationViewController;
         
+        // grab model based on cell selected
         MovieModel *model = [self.movies objectAtIndex:indexPath.row];
         movieDetailView.movieModel = model;
     }
