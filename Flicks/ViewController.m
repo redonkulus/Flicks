@@ -17,6 +17,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *movieTableView;
 @property (strong, nonatomic) NSArray<MovieModel *> *movies;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -24,16 +25,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     self.movieTableView.dataSource = self;
-    [self fetchMovies:self.restorationIdentifier];
+    
+    // setup pull to refresh
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged];
+    [self.movieTableView insertSubview:self.refreshControl atIndex:0];
+    
+    // fetch data
+    [self fetchMovies];
 }
 
-- (void)fetchMovies:(NSString*)type
+- (void)fetchMovies
 {
     NSString *apiKey = @"a07e22bc18f5cb106bfe4cc1f83ad8ed";
     NSString *urlString =
-    [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@?api_key=%@", type, apiKey];
+    [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@?api_key=%@", self.restorationIdentifier, apiKey];
     
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
@@ -70,6 +77,9 @@
                                         
                                         // save to property
                                         self.movies = models;
+                                        
+                                        // end pull to refresh ui
+                                        [self.refreshControl endRefreshing];
                                         
                                         // update table with data
                                         [self.movieTableView reloadData];
