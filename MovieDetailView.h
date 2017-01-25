@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MovieDetailView.h
 //  Flicks
 //
 //  Created by Seth Bertalotto on 1/23/17.
@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MovieModel.h"
 
-@interface ViewController : UIViewController
+@interface MovieDetailView : UIViewController
+
+@property (nonatomic, strong) MovieModel *movieModel;
 
 @end
-
