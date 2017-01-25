@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5954ACBB1E3683D900A56CA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACBA1E3683D900A56CA7 /* main.m */; };
 		5954ACBE1E3683D900A56CA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACBD1E3683D900A56CA7 /* AppDelegate.m */; };
-		5954ACC11E3683D900A56CA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACC01E3683D900A56CA7 /* ViewController.m */; };
+		5954ACC11E3683D900A56CA7 /* MovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACC01E3683D900A56CA7 /* MovieListViewController.m */; };
 		5954ACC41E3683D900A56CA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5954ACC21E3683D900A56CA7 /* Main.storyboard */; };
 		5954ACC61E3683D900A56CA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5954ACC51E3683D900A56CA7 /* Assets.xcassets */; };
 		5954ACC91E3683D900A56CA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5954ACC71E3683D900A56CA7 /* LaunchScreen.storyboard */; };
@@ -28,8 +28,8 @@
 		5954ACBA1E3683D900A56CA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5954ACBC1E3683D900A56CA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5954ACBD1E3683D900A56CA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5954ACBF1E3683D900A56CA7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5954ACC01E3683D900A56CA7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5954ACBF1E3683D900A56CA7 /* MovieListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieListViewController.h; sourceTree = "<group>"; };
+		5954ACC01E3683D900A56CA7 /* MovieListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListViewController.m; sourceTree = "<group>"; };
 		5954ACC31E3683D900A56CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5954ACC51E3683D900A56CA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5954ACC81E3683D900A56CA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -90,8 +90,8 @@
 				5976DAEA1E36C9DD0098BE40 /* MovieDetailView.m */,
 				5954ACBC1E3683D900A56CA7 /* AppDelegate.h */,
 				5954ACBD1E3683D900A56CA7 /* AppDelegate.m */,
-				5954ACBF1E3683D900A56CA7 /* ViewController.h */,
-				5954ACC01E3683D900A56CA7 /* ViewController.m */,
+				5954ACBF1E3683D900A56CA7 /* MovieListViewController.h */,
+				5954ACC01E3683D900A56CA7 /* MovieListViewController.m */,
 				5976DAF71E37D29F0098BE40 /* video-8-24.png */,
 				59F11E591E3827C4000A2880 /* star-1-16.png */,
 				5954ACD01E368F6C00A56CA7 /* MovieCell.h */,
@@ -249,7 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5976DAEB1E36C9DD0098BE40 /* MovieDetailView.m in Sources */,
-				5954ACC11E3683D900A56CA7 /* ViewController.m in Sources */,
+				5954ACC11E3683D900A56CA7 /* MovieListViewController.m in Sources */,
 				5954ACBE1E3683D900A56CA7 /* AppDelegate.m in Sources */,
 				5954ACD21E368F6C00A56CA7 /* MovieCell.m in Sources */,
 				5954ACD71E36AEE300A56CA7 /* MovieModel.m in Sources */,

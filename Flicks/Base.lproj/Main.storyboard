@@ -12,7 +12,7 @@
         <!--Now Playing-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="now_playing" title="Now Playing" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="now_playing" title="Now Playing" id="BYZ-38-t0r" customClass="MovieListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lCp-ys-Scg" id="GUu-pN-YCI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mny-WN-PmK">
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="3992.8000000000002" y="-832.53373313343332"/>
         </scene>
-        <!--View Controller-->
+        <!--Movie List View Controller-->
         <scene sceneID="pdT-BH-xYZ">
             <objects>
-                <viewController restorationIdentifier="top_rated" id="U9Z-2u-zLw" customClass="ViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="top_rated" id="U9Z-2u-zLw" customClass="MovieListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M7C-3T-y1e"/>
                         <viewControllerLayoutGuide type="bottom" id="EYj-ve-VMz"/>
@@ -176,7 +176,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="161"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hxB-sC-RYE" id="g1q-kV-jER">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlw-52-Q3j">
@@ -285,6 +285,6 @@
         <image name="video-8-24.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vG1-XZ-Hsh"/>
+        <segue reference="YJH-U4-S1e"/>
     </inferredMetricsTieBreakers>
 </document>

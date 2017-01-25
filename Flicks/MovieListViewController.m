@@ -6,14 +6,14 @@
 //  Copyright © 2017 Seth Bertalotto. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MovieListViewController.h"
 #import "MovieCell.h"
 #import "MovieModel.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import <MBProgressHUD.h>
 #import "MovieDetailView.h"
 
-@interface ViewController () <UITableViewDataSource>
+@interface MovieListViewController () <UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *movieTableView;
 @property (strong, nonatomic) NSArray<MovieModel *> *movies;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation ViewController
+@implementation MovieListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
