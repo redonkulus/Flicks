@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5935E33A1E3963B500499E1B /* warning-7-12.png in Resources */ = {isa = PBXBuildFile; fileRef = 5935E3391E3963B500499E1B /* warning-7-12.png */; };
 		5954ACBB1E3683D900A56CA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACBA1E3683D900A56CA7 /* main.m */; };
 		5954ACBE1E3683D900A56CA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACBD1E3683D900A56CA7 /* AppDelegate.m */; };
 		5954ACC11E3683D900A56CA7 /* MovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACC01E3683D900A56CA7 /* MovieListViewController.m */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		06BE6F24BE9E1BA32BB49976 /* Pods-Flicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.release.xcconfig"; sourceTree = "<group>"; };
 		1C9ACD9FCCB28256309B7940 /* Pods-Flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.debug.xcconfig"; sourceTree = "<group>"; };
+		5935E3391E3963B500499E1B /* warning-7-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "warning-7-12.png"; path = "../../../../Desktop/warning-7-12.png"; sourceTree = "<group>"; };
 		5954ACB61E3683D900A56CA7 /* Flicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5954ACBA1E3683D900A56CA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5954ACBC1E3683D900A56CA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				5954ACBF1E3683D900A56CA7 /* MovieListViewController.h */,
 				5954ACC01E3683D900A56CA7 /* MovieListViewController.m */,
 				5976DAF71E37D29F0098BE40 /* video-8-24.png */,
+				5935E3391E3963B500499E1B /* warning-7-12.png */,
 				59F11E591E3827C4000A2880 /* star-1-16.png */,
 				5954ACD01E368F6C00A56CA7 /* MovieCell.h */,
 				5954ACD11E368F6C00A56CA7 /* MovieCell.m */,
@@ -190,6 +193,7 @@
 				5954ACC61E3683D900A56CA7 /* Assets.xcassets in Resources */,
 				5976DAF81E37D29F0098BE40 /* video-8-24.png in Resources */,
 				5954ACC41E3683D900A56CA7 /* Main.storyboard in Resources */,
+				5935E33A1E3963B500499E1B /* warning-7-12.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

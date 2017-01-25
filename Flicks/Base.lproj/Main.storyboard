@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Now Playing-->
+        <!--Now Playing View-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="now_playing" title="Now Playing" id="BYZ-38-t0r" customClass="MovieListViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="now_playing" title="Now Playing View" id="BYZ-38-t0r" customClass="MovieListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -62,17 +62,36 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5vo-pZ-Y0A">
+                                <rect key="frame" x="0.0" y="64" width="375" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgi-lU-Swc">
+                                        <rect key="frame" x="126" y="-3" width="123" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="warning-7-12.png" translatesAutoresizingMaskIntoConstraints="NO" id="KKr-DM-ixe">
+                                        <rect key="frame" x="130" y="10" width="12" height="12"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="BzC-CU-vwb"/>
                     <connections>
+                        <outlet property="errorView" destination="5vo-pZ-Y0A" id="7Wn-p1-gLS"/>
                         <outlet property="movieTableView" destination="O26-24-8ph" id="5ui-ha-gMu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3000.8000000000002" y="-1167.1664167916042"/>
+            <point key="canvasLocation" x="2968.8000000000002" y="-1167.1664167916042"/>
         </scene>
         <!--Movie Detail View-->
         <scene sceneID="EkC-ue-7Zx">
@@ -155,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="3992.8000000000002" y="-832.53373313343332"/>
         </scene>
-        <!--Movie List View Controller-->
+        <!--Top Rated View-->
         <scene sceneID="pdT-BH-xYZ">
             <objects>
-                <viewController restorationIdentifier="top_rated" id="U9Z-2u-zLw" customClass="MovieListViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="top_rated" title="Top Rated View" id="U9Z-2u-zLw" customClass="MovieListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M7C-3T-y1e"/>
                         <viewControllerLayoutGuide type="bottom" id="EYj-ve-VMz"/>
@@ -208,11 +227,30 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mzF-Q1-wjD">
+                                <rect key="frame" x="0.0" y="64" width="375" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asm-jw-cdO">
+                                        <rect key="frame" x="126" y="-3" width="123" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="warning-7-12.png" translatesAutoresizingMaskIntoConstraints="NO" id="4EA-Ib-AXx">
+                                        <rect key="frame" x="130" y="10" width="12" height="12"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="dym-CC-Zig"/>
                     <connections>
+                        <outlet property="errorView" destination="mzF-Q1-wjD" id="nzr-HB-kE3"/>
                         <outlet property="movieTableView" destination="YOi-S1-fDD" id="RyW-e7-ikG"/>
                     </connections>
                 </viewController>
@@ -239,10 +277,10 @@
             </objects>
             <point key="canvasLocation" x="1156" y="-988.15592203898063"/>
         </scene>
-        <!--Now Playing-->
+        <!--Now Playing Scene-->
         <scene sceneID="9gj-im-20h">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dNO-BE-mV4" sceneMemberID="viewController">
+                <navigationController title="Now Playing Scene" automaticallyAdjustsScrollViewInsets="NO" id="dNO-BE-mV4" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Now Playing" image="video-8-24.png" selectedImage="video-8-24.png" id="mOz-89-MRg">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
@@ -260,10 +298,10 @@
             </objects>
             <point key="canvasLocation" x="2061.5999999999999" y="-1167.1664167916042"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Top Rated Scene-->
         <scene sceneID="rxm-6y-Bps">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ri3-6T-PIz" sceneMemberID="viewController">
+                <navigationController title="Top Rated Scene" automaticallyAdjustsScrollViewInsets="NO" id="Ri3-6T-PIz" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="8cP-A0-eM9"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fzQ-y1-bcp">
@@ -283,8 +321,9 @@
     <resources>
         <image name="star-1-16.png" width="16" height="16"/>
         <image name="video-8-24.png" width="24" height="24"/>
+        <image name="warning-7-12.png" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YJH-U4-S1e"/>
+        <segue reference="vG1-XZ-Hsh"/>
     </inferredMetricsTieBreakers>
 </document>
