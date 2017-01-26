@@ -102,48 +102,46 @@
     }
     
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request
-                                completionHandler:^(NSData * _Nullable data,
-                                                    NSURLResponse * _Nullable response,
-                                                    NSError * _Nullable error) {
-                                    if (!error) {
-                                        NSError *jsonError = nil;
-                                        NSDictionary *responseDictionary =
-                                        [NSJSONSerialization JSONObjectWithData:data
-                                                                        options:kNilOptions
-                                                                          error:&jsonError];
-                                        // NSLog(@"Response: %@", responseDictionary);
-                                        NSArray *results = responseDictionary[@"results"];
-                                        
-                                        // create an array to hold models
-                                        NSMutableArray *models = [NSMutableArray array];
+        completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (!error) {
+                NSError *jsonError = nil;
+                NSDictionary *responseDictionary =
+                [NSJSONSerialization JSONObjectWithData:data
+                                                options:kNilOptions
+                                                  error:&jsonError];
+                // NSLog(@"Response: %@", responseDictionary);
+                NSArray *results = responseDictionary[@"results"];
+                
+                // create an array to hold models
+                NSMutableArray *models = [NSMutableArray array];
 
-                                        // create model for each result
-                                        for (NSDictionary *result in results) {
-                                            MovieModel *model = [[MovieModel alloc] initWithDictionary:result];
-                                            
-                                            [models addObject:model];
-                                        }
-                                        
-                                        // save to property
-                                        self.movies = models;
-                                        
-                                        self.errorView.hidden = true;
-                                        
-                                        // update the views
-                                        [self showCurrentView];
-                                        
-                                    } else {
-                                        NSLog(@"An error occurred: %@", error.description);
-                                        self.errorView.hidden = false;
-                                    }
-                                    
-                                    // turn off refresh control
-                                    if (refreshControl != nil) {
-                                        [refreshControl endRefreshing];
-                                    } else {
-                                        [MBProgressHUD hideHUDForView:currentView animated:YES];
-                                    }
-                                }];
+                // create model for each result
+                for (NSDictionary *result in results) {
+                    MovieModel *model = [[MovieModel alloc] initWithDictionary:result];
+                    
+                    [models addObject:model];
+                }
+                
+                // save to property
+                self.movies = models;
+                
+                self.errorView.hidden = true;
+                
+                // update the views
+                [self showCurrentView];
+                
+            } else {
+                NSLog(@"An error occurred: %@", error.description);
+                self.errorView.hidden = false;
+            }
+            
+            // turn off refresh control
+            if (refreshControl != nil) {
+                [refreshControl endRefreshing];
+            } else {
+                [MBProgressHUD hideHUDForView:currentView animated:YES];
+            }
+        }];
     [task resume];
 }
 
@@ -160,7 +158,24 @@
     
     cell.titleLabel.text = model.title;
     cell.overviewLabel.text = model.overview;
-    [cell.posterImage setImageWithURL:model.posterUrl];
+    
+    // load poster image and fade to view
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:model.posterUrl];
+    [cell.posterImage setImageWithURLRequest:request placeholderImage:nil
+       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+           NSLog(@"Image fetch success %@",response);
+           cell.posterImage.contentMode = UIViewContentModeScaleAspectFit;
+           
+           cell.posterImage.alpha = 0.0;
+           cell.posterImage.image = image;
+           [UIView animateWithDuration:0.3 animations:^{
+               cell.posterImage.alpha = 1.0;
+           }];
+       }
+       failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+           NSLog(@"Image fetch error %@", response);
+       }
+     ];
 
     return cell;
 }
@@ -194,6 +209,7 @@
     [self showCurrentView];
 }
 
+// gets view based on selected ui control
 - (UIScrollView *) getCurrentView
 {
     long view = self.viewSegmentedControl.selectedSegmentIndex;

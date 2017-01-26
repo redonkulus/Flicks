@@ -30,7 +30,25 @@
 
 - (void)reloadData
 {
-    [self.imageView setImageWithURL:self.model.posterUrl];
+    // Establish the weak self reference
+    __weak typeof(self) weakSelf = self;
+    
+    // load poster image and fade to view
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:self.model.posterUrl];
+    [self.imageView setImageWithURLRequest:request placeholderImage:nil
+       success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+           weakSelf.imageView.contentMode = UIViewContentModeScaleAspectFit;
+           
+           weakSelf.imageView.alpha = 0.0;
+           weakSelf.imageView.image = image;
+           [UIView animateWithDuration:0.3 animations:^{
+               weakSelf.imageView.alpha = 1.0;
+           }];
+        }
+       failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+            NSLog(@"Image fetch error %@", response);
+        }
+     ];
     [self setNeedsLayout];
 }
 
