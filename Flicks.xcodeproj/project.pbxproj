@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59234A8A1E39727200D10595 /* list-2-12.png in Resources */ = {isa = PBXBuildFile; fileRef = 59234A891E39727200D10595 /* list-2-12.png */; };
+		59234A8C1E3972AD00D10595 /* grid-5-12.png in Resources */ = {isa = PBXBuildFile; fileRef = 59234A8B1E3972AD00D10595 /* grid-5-12.png */; };
+		59234A8F1E39783100D10595 /* MovieGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59234A8E1E39783100D10595 /* MovieGridCell.m */; };
 		5935E33A1E3963B500499E1B /* warning-7-12.png in Resources */ = {isa = PBXBuildFile; fileRef = 5935E3391E3963B500499E1B /* warning-7-12.png */; };
 		5954ACBB1E3683D900A56CA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACBA1E3683D900A56CA7 /* main.m */; };
 		5954ACBE1E3683D900A56CA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5954ACBD1E3683D900A56CA7 /* AppDelegate.m */; };
@@ -25,6 +28,10 @@
 /* Begin PBXFileReference section */
 		06BE6F24BE9E1BA32BB49976 /* Pods-Flicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.release.xcconfig"; sourceTree = "<group>"; };
 		1C9ACD9FCCB28256309B7940 /* Pods-Flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.debug.xcconfig"; sourceTree = "<group>"; };
+		59234A891E39727200D10595 /* list-2-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "list-2-12.png"; path = "../../../../Desktop/list-2-12.png"; sourceTree = "<group>"; };
+		59234A8B1E3972AD00D10595 /* grid-5-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "grid-5-12.png"; path = "../../../../Desktop/grid-5-12.png"; sourceTree = "<group>"; };
+		59234A8D1E39783100D10595 /* MovieGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieGridCell.h; sourceTree = "<group>"; };
+		59234A8E1E39783100D10595 /* MovieGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieGridCell.m; sourceTree = "<group>"; };
 		5935E3391E3963B500499E1B /* warning-7-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "warning-7-12.png"; path = "../../../../Desktop/warning-7-12.png"; sourceTree = "<group>"; };
 		5954ACB61E3683D900A56CA7 /* Flicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5954ACBA1E3683D900A56CA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -94,11 +101,15 @@
 				5954ACBD1E3683D900A56CA7 /* AppDelegate.m */,
 				5954ACBF1E3683D900A56CA7 /* MovieListViewController.h */,
 				5954ACC01E3683D900A56CA7 /* MovieListViewController.m */,
+				59234A8B1E3972AD00D10595 /* grid-5-12.png */,
+				59234A891E39727200D10595 /* list-2-12.png */,
 				5976DAF71E37D29F0098BE40 /* video-8-24.png */,
 				5935E3391E3963B500499E1B /* warning-7-12.png */,
 				59F11E591E3827C4000A2880 /* star-1-16.png */,
 				5954ACD01E368F6C00A56CA7 /* MovieCell.h */,
 				5954ACD11E368F6C00A56CA7 /* MovieCell.m */,
+				59234A8D1E39783100D10595 /* MovieGridCell.h */,
+				59234A8E1E39783100D10595 /* MovieGridCell.m */,
 				5954ACC21E3683D900A56CA7 /* Main.storyboard */,
 				5954ACC51E3683D900A56CA7 /* Assets.xcassets */,
 				5954ACC71E3683D900A56CA7 /* LaunchScreen.storyboard */,
@@ -188,9 +199,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59234A8C1E3972AD00D10595 /* grid-5-12.png in Resources */,
 				59F11E5A1E3827C4000A2880 /* star-1-16.png in Resources */,
 				5954ACC91E3683D900A56CA7 /* LaunchScreen.storyboard in Resources */,
 				5954ACC61E3683D900A56CA7 /* Assets.xcassets in Resources */,
+				59234A8A1E39727200D10595 /* list-2-12.png in Resources */,
 				5976DAF81E37D29F0098BE40 /* video-8-24.png in Resources */,
 				5954ACC41E3683D900A56CA7 /* Main.storyboard in Resources */,
 				5935E33A1E3963B500499E1B /* warning-7-12.png in Resources */,
@@ -255,6 +268,7 @@
 				5976DAEB1E36C9DD0098BE40 /* MovieDetailView.m in Sources */,
 				5954ACC11E3683D900A56CA7 /* MovieListViewController.m in Sources */,
 				5954ACBE1E3683D900A56CA7 /* AppDelegate.m in Sources */,
+				59234A8F1E39783100D10595 /* MovieGridCell.m in Sources */,
 				5954ACD21E368F6C00A56CA7 /* MovieCell.m in Sources */,
 				5954ACD71E36AEE300A56CA7 /* MovieModel.m in Sources */,
 				5954ACBB1E3683D900A56CA7 /* main.m in Sources */,

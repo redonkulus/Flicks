@@ -21,16 +21,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O26-24-8ph">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5vo-pZ-Y0A">
+                                <rect key="frame" x="0.0" y="64" width="375" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgi-lU-Swc">
+                                        <rect key="frame" x="126" y="-3" width="123" height="39"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="warning-7-12.png" translatesAutoresizingMaskIntoConstraints="NO" id="KKr-DM-ixe">
+                                        <rect key="frame" x="130" y="10" width="12" height="12"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="147" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O26-24-8ph">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="161" id="lCp-ys-Scg" customClass="MovieCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="161"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="147" id="lCp-ys-Scg" customClass="MovieCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="147"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lCp-ys-Scg" id="GUu-pN-YCI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mny-WN-PmK">
@@ -62,31 +80,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5vo-pZ-Y0A">
-                                <rect key="frame" x="0.0" y="64" width="375" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Network Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgi-lU-Swc">
-                                        <rect key="frame" x="126" y="-3" width="123" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="warning-7-12.png" translatesAutoresizingMaskIntoConstraints="NO" id="KKr-DM-ixe">
-                                        <rect key="frame" x="130" y="10" width="12" height="12"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="BzC-CU-vwb"/>
+                    <navigationItem key="navigationItem" id="BzC-CU-vwb">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="OIE-52-kfI">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="vTr-i6-eWU">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="list-2-12.png"/>
+                                    <segment title="" image="grid-5-12.png"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onViewChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="S7B-v9-24F"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="errorView" destination="5vo-pZ-Y0A" id="7Wn-p1-gLS"/>
                         <outlet property="movieTableView" destination="O26-24-8ph" id="5ui-ha-gMu"/>
+                        <outlet property="viewSegmentedControl" destination="vTr-i6-eWU" id="eIe-a1-gBC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -186,16 +201,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="161" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YOi-S1-fDD">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="144" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YOi-S1-fDD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="161" id="hxB-sC-RYE" customClass="MovieCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="161"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCell" rowHeight="144" id="hxB-sC-RYE" customClass="MovieCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="144"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hxB-sC-RYE" id="g1q-kV-jER">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlw-52-Q3j">
@@ -248,15 +263,30 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dym-CC-Zig"/>
+                    <navigationItem key="navigationItem" id="2AN-t2-nuU">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="jPw-ZN-0yX">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="O4i-VK-pMs">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="" image="list-2-12.png"/>
+                                    <segment title="" image="grid-5-12.png"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onViewChanged:" destination="U9Z-2u-zLw" eventType="valueChanged" id="X4h-Oh-MAX"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="errorView" destination="mzF-Q1-wjD" id="nzr-HB-kE3"/>
                         <outlet property="movieTableView" destination="YOi-S1-fDD" id="RyW-e7-ikG"/>
+                        <outlet property="viewSegmentedControl" destination="O4i-VK-pMs" id="DpA-u0-FAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTY-XA-Ghz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3000.8000000000002" y="-483.50824587706148"/>
+            <point key="canvasLocation" x="2968.8000000000002" y="-484.40779610194909"/>
         </scene>
         <!--Nav-->
         <scene sceneID="E7z-Yo-1tf">
@@ -319,11 +349,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="grid-5-12.png" width="12" height="12"/>
+        <image name="list-2-12.png" width="12" height="12"/>
         <image name="star-1-16.png" width="16" height="16"/>
         <image name="video-8-24.png" width="24" height="24"/>
         <image name="warning-7-12.png" width="12" height="12"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vG1-XZ-Hsh"/>
+        <segue reference="YJH-U4-S1e"/>
     </inferredMetricsTieBreakers>
 </document>
