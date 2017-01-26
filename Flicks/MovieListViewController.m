@@ -15,7 +15,7 @@
 #import "MovieModel.h"
 #import "MovieDetailView.h"
 
-@interface MovieListViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
+@interface MovieListViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *movieTableView;
 @property (strong, nonatomic) UICollectionView *movieCollectionView;
@@ -25,6 +25,7 @@
 @property (strong, nonatomic) NSArray<MovieModel *> *movies;
 @property (strong, nonatomic) UIRefreshControl *tableRefreshControl;
 @property (strong, nonatomic) UIRefreshControl *gridRefreshControl;
+@property (strong, nonatomic) UISearchBar *searchBarControl;
 
 @end
 
@@ -36,6 +37,7 @@
     self.movieTableView.dataSource = self;
     self.movieTableView.delegate = self;
 
+    // manual instead of via IB
     [self setupCollectionView];
     
     // setup pull to refresh
@@ -46,6 +48,11 @@
     self.gridRefreshControl = [[UIRefreshControl alloc] init];
     [self.gridRefreshControl addTarget:self action:@selector(fetchMovies:) forControlEvents:UIControlEventValueChanged];
     [self.movieCollectionView insertSubview:self.gridRefreshControl atIndex:0];
+    
+    // setup search
+    self.searchBarControl = [[UISearchBar alloc] init];
+    self.searchBarControl.delegate = self;
+    self.navigationItem.titleView = self.searchBarControl;
     
     // fetch data
     [self fetchMovies:nil];
@@ -62,25 +69,41 @@
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
     
+    // create the view
     UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectInset(self.view.bounds, 0, 64) collectionViewLayout:layout];
     
+    // register the custom class
     [collectionView registerClass:[MovieGridCell class] forCellWithReuseIdentifier:@"MovieGridCell"];
     
+    // assign to self
     collectionView.dataSource = self;
     collectionView.delegate = self;
+    
     [self.view addSubview:collectionView];
 
+    // set to property
     self.movieCollectionView = collectionView;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self fetchMovies:nil];
 }
 
 - (void)fetchMovies:(UIRefreshControl *)refreshControl
 {
     UIView *currentView = [self getCurrentView];
+    NSString *query = self.searchBarControl.text;
+    
+    NSString *apiKey = @"a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    NSString *urlString;
     
     // setup api URL
-    NSString *apiKey = @"a07e22bc18f5cb106bfe4cc1f83ad8ed";
-    NSString *urlString =
-    [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@?api_key=%@", self.restorationIdentifier, apiKey];
+    if (query.length > 1) {
+        urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/search/movie?query=%@&api_key=%@", query, apiKey];
+    } else {
+        urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@?api_key=%@", self.restorationIdentifier, apiKey];
+    }
     
     // setup url instances
     NSURL *url = [NSURL URLWithString:urlString];
@@ -97,7 +120,7 @@
     // reset error and show progress
     self.errorView.hidden = true;
     
-    if (refreshControl == nil) {
+    if (refreshControl == nil && query.length == 0) {
         [MBProgressHUD showHUDAddedTo:currentView animated:YES];
     }
     
@@ -125,6 +148,7 @@
                 // save to property
                 self.movies = models;
                 
+                // hide network error view
                 self.errorView.hidden = true;
                 
                 // update the views
@@ -132,6 +156,7 @@
                 
             } else {
                 NSLog(@"An error occurred: %@", error.description);
+                // show network error view
                 self.errorView.hidden = false;
             }
             
@@ -163,7 +188,6 @@
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:model.posterUrl];
     [cell.posterImage setImageWithURLRequest:request placeholderImage:nil
        success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-           NSLog(@"Image fetch success %@",response);
            cell.posterImage.contentMode = UIViewContentModeScaleAspectFit;
            
            cell.posterImage.alpha = 0.0;
@@ -198,6 +222,7 @@
     return self.movies.count;
 }
 
+// setup segue for collection view cell 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
