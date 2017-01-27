@@ -111,8 +111,8 @@
     
     // overwrite default timeout values
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
-    sessionConfig.timeoutIntervalForRequest = 5.0;
-    sessionConfig.timeoutIntervalForResource = 5.0;
+    sessionConfig.timeoutIntervalForRequest = 10.0;
+    sessionConfig.timeoutIntervalForResource = 10.0;
     
     // setup sessions instance
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
@@ -120,7 +120,7 @@
     // reset error and show progress
     self.errorView.hidden = true;
     
-    if (refreshControl == nil && query.length == 0) {
+    if (refreshControl == nil || query.length == 0) {
         [MBProgressHUD showHUDAddedTo:currentView animated:YES];
     }
     
