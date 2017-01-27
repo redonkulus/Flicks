@@ -120,7 +120,7 @@
     // reset error and show progress
     self.errorView.hidden = true;
     
-    if (refreshControl == nil || query.length == 0) {
+    if (refreshControl == nil && query.length == 0) {
         [MBProgressHUD showHUDAddedTo:currentView animated:YES];
     }
     
